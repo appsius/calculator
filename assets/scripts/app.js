@@ -32,6 +32,15 @@ function calculateResult(calculationType) {
 	const initialResult = currentResult;
 	let mathOperator;
 
+	if (
+		calculationType !== 'ADD' &&
+		calculationType !== 'SUBTRACT' &&
+		calculationType !== 'MULTIPLY' &&
+		calculationType !== 'DIVIDE'
+	) {
+		return;
+	}
+
 	if (calculationType === 'ADD') {
 		currentResult += enteredNumber;
 		mathOperator = '+';
@@ -44,8 +53,6 @@ function calculateResult(calculationType) {
 	} else if (calculationType === 'DIVIDE') {
 		currentResult /= enteredNumber;
 		mathOperator = '/';
-	} else {
-		console.log('Please make sure you enterede a number!');
 	}
 
 	createAndWriteOutput(mathOperator, initialResult, enteredNumber);
